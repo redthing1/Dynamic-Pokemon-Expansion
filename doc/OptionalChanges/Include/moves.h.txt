@@ -1,0 +1,13 @@
+---------------------------------
+DPE Master/Include/moves.h
+---------------------------------
+
+Note: You can create your own custom moves. Read the CFRU Documentation for more details.
+Note: If you create new moves, place them AFTER Dragon Energy and BEFORE the Z-Moves. Change NON_Z_MOVE_COUNT at the end.
+
+The Syntax is as follows:
+
+#define MOVE_MOVENAME 0x(Hex #)
+Make sure you change the Hexidecimal index # of everything after it in the table!
+
+Make sure this file matches the moves file in the CFRU repository!

@@ -1,0 +1,33 @@
+--------------------------------------------
+DPE Master/Src/Icon_Palette_Table.c
+--------------------------------------------
+
+This file determines which pokemon species is linked to the icon palettes defined in Include/sprite_data.h
+
+Syntax:
+
+{
+	[SPECIES_NONE] = 0x0,
+	[SPECIES_BULBASAUR] = 0x1,
+	[SPECIES_IVYSAUR] = 0x1,
+	[SPECIES_VENUSAUR] = 0x1,
+	[SPECIES_CHARMANDER] = 0x0,
+	[SPECIES_CHARMELEON] = 0x0,
+	[SPECIES_CHARIZARD] = 0x0,
+	[SPECIES_SQUIRTLE] = 0x0,
+	[SPECIES_WARTORTLE] = 0x2,
+	[SPECIES_BLASTOISE] = 0x2,
+...
+	[SPECIES_PIKACHU_CAP_PARTNER] = 0x0,
+	[SPECIES_PICHU_SPIKY] = 0x1,
+	[SPECIES_XERNEAS_NATURAL] = 0x0,
+};
+
+Note how the species is linked to an offset that is either 0x0, 0x1 or 0x2.
+The icons each have 3 palettes to choose from, and every public resource is tailored to one of them.
+If you inserted a new species or some sort of fakemon, I really do not know which palette you should link to it.
+
+In a vanilla rom that you aren't using to build a hack or DPE with, using PGE you can manually insert the icons you aren't sure about and then mess around with the palette there, then come back to this table.
+That is the only way I can really see you knowing which of the 3 palettes fits best.
+
+Make sure every species defined in Include/species.h has one!

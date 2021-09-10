@@ -1,0 +1,56 @@
+-------------------------------
+DPE Master/Src/Cry_Table_2.c
+-------------------------------
+
+This is an unused cry table that has some function related to cries.
+It must also be expanded. The idea is the same as Cry Table 1. 
+Map all the pokemon cries to those added in Include/cry_data.h!
+
+Syntax:
+
+const struct ToneData gCryTable2[NUM_SPECIES] =
+{
+	[SPECIES_BULBASAUR] =
+	{
+		.type = 0x30,
+		.key = 0x3c,
+		.length = 0x0,
+		.pan_sweep = 0x0,
+		.wav = (u8*) 0x850fbc4,
+		.attack = 0xff,
+		.decay = 0x0,
+		.sustain = 0xff,
+		.release = 0x0,
+	},
+	[SPECIES_IVYSAUR] =
+	{
+		.type = 0x30,
+		.key = 0x3c,
+		.length = 0x0,
+		.pan_sweep = 0x0,
+		.wav = (u8*) 0x8510c50,
+		.attack = 0xff,
+		.decay = 0x0,
+		.sustain = 0xff,
+		.release = 0x0,
+	},
+...
+	[SPECIES_XERNEAS_NATURAL] =
+	{	
+		.type = 0x30,
+		.key = 0x3c,
+		.length = 0x0,
+		.pan_sweep = 0x0,
+		.wav = gCryXerneas,
+		.attack = 0xff,
+		.decay = 0x0,
+		.sustain = 0xff,
+		.release = 0x0,
+	},
+};
+
+For entries starting with Turtwig, notice that Xerneas uses .wav= gCryXerneas, while Bulbasaur leads to its original offset.
+All of these offsets look scary, but the only thing that matters is what .wav leads to.
+Ignore the rest! But unlike Cry Table 1, type = 0x30 and not 0x20.
+
+Make sure every cry included in cry_data.h and the audio folder is included!

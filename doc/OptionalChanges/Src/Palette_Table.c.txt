@@ -1,0 +1,23 @@
+---------------------------------------
+DPE Master/Src/Palette_Table.c
+---------------------------------------
+
+This file determines which pokemon species is linked to the normal palettes defined in Include/sprite_data.h
+
+Syntax:
+
+{
+	[SPECIES_NONE] =                 {gFrontSprite000NonePal, SPECIES_NONE, 0x0},
+	[SPECIES_BULBASAUR] =            {gFrontSprite001BulbasaurPal, SPECIES_BULBASAUR, 0x0},
+	[SPECIES_IVYSAUR] =              {gFrontSprite002IvysaurPal, SPECIES_IVYSAUR, 0x0},
+	[SPECIES_VENUSAUR] =             {gFrontSprite003VenusaurPal, SPECIES_VENUSAUR, 0x0},
+...
+	[SPECIES_PIKACHU_CAP_PARTNER] =  {gFrontSprite1099PikachuCapPartnerPal, SPECIES_PIKACHU_CAP_PARTNER, 0x0},
+	[SPECIES_PICHU_SPIKY] =          {gFrontSprite1100PichuSpikyPal, SPECIES_PICHU_SPIKY, 0x0},
+	[SPECIES_XERNEAS_NATURAL] =      {gFrontSprite1101XerneasNaturalPal, SPECIES_XERNEAS_NATURAL, 0x0},
+};
+
+Note how the species is linked to gFrontSpriteXYPal
+X being the sprite #, Y being the species.
+
+If you have edited Include/sprite_data.h, you must ensure that the species matches the proper value!

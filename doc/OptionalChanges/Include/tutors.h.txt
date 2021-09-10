@@ -1,0 +1,42 @@
+---------------------------------
+DPE Master/Include/tutors.h
+---------------------------------
+This is one of two tables that need to be edited to customize Move Tutors and their order in the table.
+The other one is located in DPE Master/Src/TM_Tutor_Tables.c
+BOTH MUST MATCH!
+When changing the entries for Move Tutors, customize the files found in the Src/tutor_compatability/ folder.
+More details are provided in that section of customizable files!
+
+Syntax is as follows:
+
+enum MoveTutors
+{
+	TUTOR00_X,
+	TUTOR01_X,
+...
+	TUTOR127_X,
+
+//Special Move Tutors - Not in Table
+	TUTOR_SPECIAL_DRACO_METEOR,			//128 - Dragon Pokemon
+	TUTOR_SPECIAL_SECRET_SWORD,			//129 - Keldeo only
+	TUTOR_SPECIAL_RELIC_SONG,			//130 - Meloetta only
+	TUTOR_SPECIAL_VOLT_TACKLE,			//131 - Pikachu only
+	TUTOR_SPECIAL_DRAGON_ASCENT,		//132 - Rayquaza only
+	TUTOR_SPECIAL_THOUSAND_ARROWS,		//133 - Zygarde only
+	TUTOR_SPECIAL_THOUSAND_WAVES,		//134 - Zygarde only
+	TUTOR_SPECIAL_CORE_ENFORCER,		//135 - Zygarde only
+	TUTOR_SPECIAL_STEEL_BEAM,			//136 - Steel Pokemon
+};
+
+#define LAST_TOTAL_TUTOR_NUM 136
+
+You can change the above line to the tutors you want + 8.
+By default, DPE expands Move Tutors to 128 + 8 preset move tutors.
+You can choose to limit that amount in Src/defines.h in DPE, and changing the number of tutors in CFRU in CFRU Master/Src/Config.h
+Note that the 8 preset move tutors will always be added after your maximum.
+
+In order to make the scripts call for the tutors, follow the instructions of this post:
+
+https://www.pokecommunity.com/showthread.php?t=433707
+
+NOTE: The script will call for the Tutor # in hex and the first tutor is 0x0!

@@ -1,0 +1,81 @@
+-----------------------------------
+DPE Master/Src/Learnsets.c
+-----------------------------------
+
+This file is where you would customize the level up moves for each pokemon.
+This is assuming IF you did not comment out #define EXPAND_LEARNSETS in Src/defines.h
+If you did comment out (you added //) #define EXPAND_LEARNSETS then you would change the Learnsets table in CFRU instead.
+
+Syntax/Example:
+
+static const struct LevelUpMove sEmptyMoveset[] = {
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBulbasaurLevelUpLearnset[] = {
+	LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+	LEVEL_UP_MOVE( 3, MOVE_GROWL),
+	LEVEL_UP_MOVE( 7, MOVE_LEECHSEED),
+	LEVEL_UP_MOVE( 9, MOVE_VINEWHIP),
+	LEVEL_UP_MOVE(13, MOVE_POISONPOWDER),
+	LEVEL_UP_MOVE(13, MOVE_SLEEPPOWDER),
+	LEVEL_UP_MOVE(15, MOVE_TAKEDOWN),
+	LEVEL_UP_MOVE(19, MOVE_RAZORLEAF),
+	LEVEL_UP_MOVE(21, MOVE_SWEETSCENT),
+	LEVEL_UP_MOVE(25, MOVE_GROWTH),
+	LEVEL_UP_MOVE(27, MOVE_DOUBLEEDGE),
+	LEVEL_UP_MOVE(31, MOVE_WORRYSEED),
+	LEVEL_UP_MOVE(33, MOVE_SYNTHESIS),
+	LEVEL_UP_MOVE(37, MOVE_SEEDBOMB),
+	LEVEL_UP_END
+};
+
+
+For every Pokemon in the table (which should be in species order), you must write:
+
+static const struct LevelUpMove sNameLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(LEVEL, MOVE_MOVENAME),
+...
+	LEVEL_UP_END
+};
+
+Moves can be found in Include/moves.h
+
+Additionally, if you wanted to instead define moves that are learned upon evolution (like Delphox learning Mystical Fire):
+
+The first move or moves in the table should be Level 0.
+The level 0 moves should also be included as Level 1 moves for move relearner compatibility.
+
+	LEVEL_UP_MOVE( 0, MOVE_MYSTICALFIRE),
+	LEVEL_UP_MOVE( 1, MOVE_MYSTICALFIRE),
+	LEVEL_UP_MOVE( 1, MOVE_SHADOWBALL),
+	LEVEL_UP_MOVE( 1, MOVE_TRICK),
+...
+
+But we are not done!
+When we type the line "static const struct LevelUpMove sNameLevelUpLearnset[] = {", where is this name loaded from?
+How does DPE know that LevelUpMove sDelphoxLevelUpLearnset goes to Delphox?
+
+-----------------------------
+Part 2
+-----------------------------
+
+The second table at the very end is how.
+This table defines which species is linked to which define from part 1.
+Here is how it works:
+
+const struct LevelUpMove* const gLevelUpLearnsets[NUM_SPECIES] =
+{
+	[SPECIES_NONE] = sEmptyMoveset,
+	[SPECIES_BULBASAUR] = sBulbasaurLevelUpLearnset,
+...
+	[SPECIES_EXEGGUTOR_A] = sExeggutorALevelUpLearnset,
+...
+	[SPECIES_PIKACHU_CAP_PARTNER] = sPikachuLevelUpLearnset,
+	[SPECIES_PICHU_SPIKY] = sPichuLevelUpLearnset,
+	[SPECIES_XERNEAS_NATURAL] = sXerneasLevelUpLearnset,
+};
+#endif
+
+Just match the species defined in Include/species.h to the learnset you created in table 1.
+Simple as that!

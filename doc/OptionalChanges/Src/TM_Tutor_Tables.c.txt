@@ -1,0 +1,79 @@
+-----------------------------------
+DPE Master/Src/TM_Tutor_Tables.c
+-----------------------------------
+This is where you define the moves taught via TM and Move Tutors.
+Editing this file is really simple.
+
+----------
+TMs
+----------
+Open include/moves.h to use as a reference of moves you want to include.
+In the existing TM Table, you can replace the values with the moves you want in your specific TM order.
+If you want less than 120 TMs, edit Src/defines.h to determine the number of TMs+HMs, and edit CFRU's Src/config.h file accordingly.
+
+Syntax:
+
+const u16 gTMHMMoves[NUM_TMSHMS] =
+{
+	MOVE_FOCUSPUNCH,	//1
+	MOVE_DRAGONCLAW,	//2
+	MOVE_WATERPULSE,	//3
+...
+	MOVE_ROCKSMASH,		//126
+	MOVE_WATERFALL,		//127
+	MOVE_ROCKCLIMB,		//128
+};
+
+When changing the entries for TMs and HMs, customize the files found in the Src/tm_compatability/ folder.
+More details are provided in that section of customizable files!
+
+When you finished that setup, there is an additional step for TMs.
+Open up G3T's item editor.
+Assuming you customized your TM table, you will need to change the palettes of the TMs to match the move type.
+Look at existing TM palettes and switch em around to your liking.
+You must edit move descriptions as well. 
+If you are using expanded moves after the original Gen 3 table, revisit this after inserting CFRU.
+CFRU actually inserts the new move data, so you won't have a description offset to work with until then.
+Open G3T's move editor, find the move, and copy the offset for its description.
+
+----------------------/
+Idea for TMs and TRs:
+----------------------/
+**THIS HAS NOT BEEN TESTED, ITS JUST AN IDEA**
+Customize however many TMs you want for your hack, and have TRs immediately after. Both would be loaded from the TM compatibility table.
+For example, I want 50 TMs, 8 HMs and 70 TRs. After MOVE_OVERHEAT and before MOVE_CUT would be the TR's.
+
+In CFRU's src/config.h, define infinite use TMs. 
+In G3T's item editor, change the TM hidden byte values to 1 for infinite use, but leave your TRs at 0.
+If you dont know what this means, look at the CFRU documentation.
+Change TM51-TM120 to TR51-TR120 in the name table to be consistent.
+
+This should make the TRs sellable and destructable, as well as giving you the ability to obtain multiple.
+**AGAIN, I HAVE NOT TESTED THIS AND DO NOT KNOW IF IT WORKS. ITS JUST AN IDEA THAT CROSSED MY MIND**
+
+----------
+Tutors
+----------
+Unlike TMs, this is one of two tables that need to be edited to customize Move Tutors and their order in the table.
+The other one is located in DPE Master/Include/tutors.h
+BOTH MUST MATCH!
+Unlike tutors.h however, move names must be defined by the values in Include/move.h, so DO NOT ADD SPACES TO THE NAMES IN THIS ONE.
+
+Syntax:
+
+const u16 gMoveTutorMoves[NUM_MOVE_TUTOR_MOVES] =
+{
+	MOVE_FIREPUNCH,			//1
+	MOVE_ICEPUNCH,			//2
+	MOVE_THUNDERPUNCH,		//3
+...
+	MOVE_MEGAHORN,			//126
+	MOVE_POWERWHIP,			//127
+	MOVE_SOLARBLADE,		//128
+};
+
+There is no need to define the additional 8 Tutors found in the tutors.h file. Those are handled by DPE and CFRU.
+
+When changing the entries for Move Tutors, customize the files found in the Src/tutor_compatability/ folder.
+More details are provided in that section of customizable files!
+

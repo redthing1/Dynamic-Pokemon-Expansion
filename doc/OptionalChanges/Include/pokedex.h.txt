@@ -1,0 +1,29 @@
+---------------------------------
+DPE Master/Include/pokedex.h
+---------------------------------
+
+This file is where you define the National Pokedex Order.
+You can customize this to your liking.
+
+The file is divided into two parts:
+1. The national dex species defines
+2. The dex entry table
+
+For Part 1:
+
+The syntax is #define NATIONAL_DEX_NAME ###
+
+Create your national dex order as you will.
+Make sure FINAL_DEX_ENTRY and NATIONAL_DEX_COUNT ends with the final entry of the table.
+
+For Part 2:
+
+This section defines the text entries for each dex entry.
+These text entries are written out in Strings/Pokedex_Data.string!
+
+As DPE offers support for creating entries for alternate forms, you may define alt forms as you see fit.
+Or none at all. Your rom hack, your choice.
+
+The syntax is:
+
+extern const u8 DEX_ENTRY_NAME[];

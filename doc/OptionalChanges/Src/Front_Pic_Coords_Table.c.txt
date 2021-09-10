@@ -1,0 +1,38 @@
+-----------------------------------------
+DPE Master/Src/Front_Pic_Coords_Table.c
+-----------------------------------------
+
+This table sets the coordinates for the front sprites when sent out into battle.
+The setup is virtually identical to Src/Back_Pic_Coords_Table.c
+
+Syntax: 
+
+const struct MonCoords gMonFrontPicCoords[NUM_SPECIES] =
+{
+	[SPECIES_NONE] =
+	{
+		.size = 0x88,
+		.y_offset = 0x0,
+	},
+	[SPECIES_BULBASAUR] =
+	{
+		.size = 0x55,
+		.y_offset = 0x10,
+	},
+...
+	[SPECIES_PICHU_SPIKY] =
+	{
+		.size = 0x0,
+		.y_offset = 0xe,
+	},
+	[SPECIES_XERNEAS_NATURAL] =
+	{
+		.size = 0x0,
+		.y_offset = 0x0,
+	},
+};
+
+For each new entry, you can set the size to 0x0.
+If you do not know the Y coordinate offset for your new sprite, its not a problem.
+
+You can change this using Advance Sprite, Icon and Position Editor later anyway!

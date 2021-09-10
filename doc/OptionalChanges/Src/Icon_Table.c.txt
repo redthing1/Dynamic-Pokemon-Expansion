@@ -1,0 +1,20 @@
+------------------------------
+DPE Master/Src/Icon_Table.c
+------------------------------
+
+This table links which species defined in Include/species.h will be matched with a given icon sprite.
+
+Syntax:
+
+const u8* const gMonIconTable[NUM_SPECIES] =
+{
+	[SPECIES_NONE] =                 gIconSprite000NoneTiles,
+	[SPECIES_BULBASAUR] =            gIconSprite001BulbasaurTiles,
+	[SPECIES_IVYSAUR] =              gIconSprite002IvysaurTiles,
+	[SPECIES_VENUSAUR] =             gIconSprite003VenusaurTiles,
+...
+	[SPECIES_PICHU_SPIKY] =          gIconSprite1100PichuSpikyTiles,
+	[SPECIES_XERNEAS_NATURAL] =      gIconSprite1101XerneasNaturalTiles,
+};
+
+Match every pokemon in Include/species.h to an IconSprite found in Include/sprite_data.h!

@@ -1,0 +1,18 @@
+-----------------------------------------------
+DPE Master/Strings/Pokemon_Name_Table.string
+-----------------------------------------------
+
+This table determines how Pokemon names will appear in-game and in tools like G3T.
+
+Note: THIS TABLE MUST BE IN ORDER MATCHING INCLUDE/SPECIES.H
+
+The maximum length for Pokemon names is 10.
+If you add any new entries, ensure that the name does not exceed 10 characters.
+
+Syntax:
+
+#org @NAME_POKEMON
+Pokemon
+
+#org @NAME_FLETCHINDER
+Fletchnder

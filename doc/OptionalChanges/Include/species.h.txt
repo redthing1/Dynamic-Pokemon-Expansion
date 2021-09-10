@@ -1,0 +1,11 @@
+---------------------------------
+DPE Master/Include/species.h
+---------------------------------
+
+Note: You can customize your own species table, but be aware that you have to change EVERYTHING PKMN RELATED!
+Note: It is best for your sanity to just add new slots to the end of the table rather than removing or replacing existing ones.
+Note: CFRU Documentation provides a list of pokemon who you shouldn't really mess with.
+Note: If creating a more limited Pokedex is what you are concerned with, just insert the excess anyway and customize the Dex Tables.
+Note: Be sure to change #define NUM_SPECIES at the end to the final pokemon in the table + 1
+
+This must match the species list in the CFRU repository as well!

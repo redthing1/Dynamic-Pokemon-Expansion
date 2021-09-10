@@ -1,0 +1,32 @@
+--------------------------------------------
+DPE Master/Src/Species_To_Pokedex_Table.c
+--------------------------------------------
+
+This is a table that determines which species of Pokemon is linked to what Pokedex entry.
+The species table is found in Include/species.h, the dex entries are found in Include/pokedex.h.
+
+Syntax:
+
+const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
+{
+	[SPECIES_BULBASAUR - 1] = NATIONAL_DEX_BULBASAUR,
+	[SPECIES_IVYSAUR - 1] = NATIONAL_DEX_IVYSAUR,
+	[SPECIES_VENUSAUR - 1] = NATIONAL_DEX_VENUSAUR,
+...
+	[SPECIES_VENUSAUR_MEGA - 1] = NATIONAL_DEX_VENUSAUR,
+	[SPECIES_CHARIZARD_MEGA_X - 1] = NATIONAL_DEX_CHARIZARD,
+	[SPECIES_CHARIZARD_MEGA_Y - 1] = NATIONAL_DEX_CHARIZARD,
+...
+	[SPECIES_RATTATA_A - 1] = NATIONAL_DEX_RATTATA,
+	[SPECIES_RATICATE_A - 1] = NATIONAL_DEX_RATICATE,
+...
+	[SPECIES_PIKACHU_CAP_PARTNER - 1] = NATIONAL_DEX_PIKACHU,
+	[SPECIES_PICHU_SPIKY - 1] = NATIONAL_DEX_PICHU,
+	[SPECIES_XERNEAS_NATURAL - 1] = NATIONAL_DEX_XERNEAS,
+};
+
+And so forth.
+
+Notice that alternate forms are linked to the original Pokedex entry defined in the first list of Include/pokedex.h.
+This means that Megas, Alolan and Galarian forms, Gigantamax, etc. are all linked to the original species entry.
+Ensure every species is linked to an entry!

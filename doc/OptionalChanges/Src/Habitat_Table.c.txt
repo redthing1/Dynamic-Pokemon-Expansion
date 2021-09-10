@@ -1,0 +1,133 @@
+----------------------------------
+DPE Master/Src/Habitat_Table.c
+-----------------------------------
+
+The FireRed Pokedex has an interesting function: Habitats!
+Normally a pain to edit, usually requiring PGE and a Hex Editor, this file takes care of all that nonsense at once!
+
+This file is divided into two parts:
+1. The tables themselves
+2. Table page configuration
+
+There are several habitats in this order:
+Grassland	
+Forest
+Water's Edge
+Sea
+Cave
+Mountain
+Rough Terrain
+Urban
+Rare
+
+This is also how you access alternate forms in the Pokedex, so every alt form with a dex entry must be included!
+Do also note that the various Pikachu forms are special in that Page 8 has a few clones, up to Page 8_5.
+Leave that alone or move that structure elsewhere.
+Remember that there is a max of 4 per page!
+
+Syntax:
+
+const u16 gGrasslandPage1[] =
+{
+	SPECIES_RATTATA,
+	SPECIES_RATICATE,
+	SPECIES_SENTRET,
+	SPECIES_FURRET,
+};
+
+const u16 gGrasslandPage2[] =
+{
+	SPECIES_ZIGZAGOON,
+	SPECIES_LINOONE,
+	SPECIES_POOCHYENA,
+	SPECIES_MIGHTYENA,
+};
+...
+const u16 gGrasslandPage51[] =
+{
+	SPECIES_MUDBRAY,
+	SPECIES_MUDSDALE,
+	SPECIES_STUFFUL,
+	SPECIES_BEWEAR,
+};
+
+const u16 gForestPage1[] =
+{
+	SPECIES_CATERPIE,
+	SPECIES_METAPOD,
+	SPECIES_BUTTERFREE,
+};
+
+const u16 gForestPage2[] =
+{
+	SPECIES_WEEDLE,
+	SPECIES_KAKUNA,
+	SPECIES_BEEDRILL,
+};
+...
+const u16 gRarePage30[] =
+{
+	SPECIES_POIPOLE,
+	SPECIES_NAGANADEL,
+	SPECIES_STAKATAKA,
+	SPECIES_BLACEPHALON,
+};
+
+const u16 gRarePage31[] =
+{
+	SPECIES_MELTAN,
+	SPECIES_MELMETAL,
+};
+
+Feel free to rearrange these tables, or add to them. There is no numerical limit.
+Just keep in mind the Pikachu structures.
+
+------------------
+On to part 2:
+------------------
+
+Youll notice a bunch of tables towards the bottom of the file.
+This is where youll actually define the amount of pages you included in the above table.
+So if you added more Pokemon to grassland, say 56 pages, you need to add 52-56 in the GrasslandPages table!
+
+Syntax:
+
+const struct HabitatPage gGrasslandPages[] =
+{
+	{gGrasslandPage1, ARRAY_COUNT(gGrasslandPage1)}, 
+	{gGrasslandPage2, ARRAY_COUNT(gGrasslandPage2)}, 
+	{gGrasslandPage3, ARRAY_COUNT(gGrasslandPage3)}, 
+...
+	{gGrasslandPage51, ARRAY_COUNT(gGrasslandPage51)}, 
+};
+
+	const struct HabitatPage gForestPages[] =
+{
+	{gForestPage7, ARRAY_COUNT(gForestPage7)}, 
+	{gForestPage8, ARRAY_COUNT(gForestPage8)}, 
+	{gForestPage8_1, ARRAY_COUNT(gForestPage8_1)}, 
+	{gForestPage8_2, ARRAY_COUNT(gForestPage8_2)}, 
+	{gForestPage8_3, ARRAY_COUNT(gForestPage8_3)}, 
+	{gForestPage8_4, ARRAY_COUNT(gForestPage8_4)}, 
+	{gForestPage8_5, ARRAY_COUNT(gForestPage8_5)}, 
+	{gForestPage9, ARRAY_COUNT(gForestPage9)}, 
+...
+	{gForestPage60, ARRAY_COUNT(gForestPage60)},
+};
+
+
+
+Finally, after the RarePage table, the following must be present as the bottom of this file:
+
+const struct Habitat gHabitatPtrsTable[9] =
+{
+	{gGrasslandPages, ARRAY_COUNT(gGrasslandPages)},
+	{gForestPages, ARRAY_COUNT(gForestPages)},
+	{gWatersEdgePages, ARRAY_COUNT(gWatersEdgePages)},
+	{gSeaPages, ARRAY_COUNT(gSeaPages)},
+	{gCavePages, ARRAY_COUNT(gCavePages)},
+	{gMountainPages, ARRAY_COUNT(gMountainPages)},
+	{gRoughTerrainPages, ARRAY_COUNT(gRoughTerrainPages)},
+	{gUrbanPages, ARRAY_COUNT(gUrbanPages)},
+	{gRarePages, ARRAY_COUNT(gRarePages)},
+};

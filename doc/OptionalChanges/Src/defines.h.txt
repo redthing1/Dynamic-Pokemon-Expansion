@@ -1,0 +1,20 @@
+----------------------------
+DPE Master/Src/defines.h
+----------------------------
+
+This is a really simple file to edit, as theres only 3 lines you need to pay attention to.
+
+#define EXPAND_LEARNSETS
+
+If you're using this feature, make sure you insert the Complete Fire Red Upgrade afterwards or the game will crash.
+Comment out this line if you're using the CFRU to expand movesets.
+
+I recommend doing so, as CFRU is intended to be among the last things you insert.
+If you are going to test out your hack before using CFRU, I recommend adding // before that #define!
+Always make backups!
+
+#define NUM_TMSHMS 128
+#define NUM_MOVE_TUTOR_MOVES 128
+
+These just define how many TMs+HMs, and how many move tutors there will be in your hack.
+Customize the tables affected by that.

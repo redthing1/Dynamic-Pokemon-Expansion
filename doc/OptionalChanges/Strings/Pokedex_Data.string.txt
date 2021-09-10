@@ -1,0 +1,22 @@
+-----------------------------------------
+DPE Master/Strings/Pokedex_Data.string
+-----------------------------------------
+
+This file works in conjunction with include/pokedex.h
+
+NOTE: EACH ENTRY MUST MATCH THE TABLE ORDER DEFINED IN PART 2 OF INCLUDE/POKEDEX.H
+
+Each dex entry cannot exceed 3 lines of dialogue.
+A healthy character limit per line should be about 34-40 characters, depending on formatting.
+
+The syntax:
+
+#org @DEX_ENTRY_NAME
+Abcdefg \nAbcdefg\nAbcdefg
+
+\n indicates a new line of text
+
+When writing the word Pokemon use the following text: Pok\emon
+
+Do not copy paste the entry directly from Bulbapedia or PokemonDB, it produces a syntax error sometimes.
+Write each entry out by hand.

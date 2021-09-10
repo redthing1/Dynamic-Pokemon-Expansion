@@ -1,0 +1,464 @@
+-----------------------------------
+DPE Master/Src/Pokedex_Orders.c
+-----------------------------------
+
+This file contains 5 different tables for you to edit. They are as follows:
+
+1. Custom Regional Dex
+2. Alphabetical Order Dex
+3. Weight Dex Order
+4. Height Dex Order
+5. Type Dex Order
+
+----------
+TABLE 1
+----------
+For the first table, it is configured to be the original Kanto 151.
+I have not extensively tested its limitations. Play around with it.
+If you can create a custom dex with like 400 Pokemon, more power to you.
+In CFRU's include/config.h, change the regional dex define # afterwards.
+
+Syntax/Example: 
+
+const u16 gPokedexOrder_Regional[] =
+{
+	SPECIES_BULBASAUR,
+...
+	SPECIES_MEW,
+};
+
+const u16 gRegionalDexCount = ARRAY_COUNT(gPokedexOrder_Regional);
+
+----------
+TABLE 2
+----------
+For the second table, organize every Pokemon you want in your rom in alphabetical order. Do not include alternate forms.
+
+Syntax/Example:
+
+const u16 gPokedexOrder_Alphabetical[] =
+{
+	SPECIES_ABOMASNOW,
+...
+	SPECIES_ZYGARDE,
+};
+
+const u16 gPokedexOrderAlphabeticalCount = ARRAY_COUNT(gPokedexOrder_Alphabetical);
+
+----------
+TABLE 3
+----------
+For the third table, organize every Pokemon you want in your rom by order of Weight. Do not include alternate forms.
+Bulbapedia is a good resource for this.
+
+Syntax/Example:
+
+const u16 gPokedexOrder_Weight[] =
+{
+	SPECIES_GASTLY,
+...
+	SPECIES_CELESTEELA,
+};
+
+const u16 gPokedexOrderWeightCount = ARRAY_COUNT(gPokedexOrder_Weight);
+
+----------
+TABLE 4
+----------
+For the fourth table, organize every Pokemon you want in your rom by order of Height. Do not include alternate forms.
+Bulbapedia is a good resource for this.
+
+Syntax/Example:
+
+const u16 gPokedexOrder_Height[] =
+{
+	SPECIES_JOLTIK,
+...
+	SPECIES_WAILORD,
+};
+
+const u16 gPokedexOrderHeightCount = ARRAY_COUNT(gPokedexOrder_Height);
+
+----------
+TABLE 5
+----------
+For the final table, things get a bit trickier than the first four.
+By default Pokemon types are ordered as such:
+
+Normal
+Fighting
+Flying
+Poison
+Ground
+Rock
+Bug
+Ghost
+Steel
+Fire
+Water
+Grass
+Electric
+Psychic
+Ice
+Dragon
+Dark 
+Fairy
+
+Problem is, what do we do with dual types?
+Well after the final pure normal type in national dex order, (lets just say Komala for now), we start adding Normal/Fighting types. Then Normal/Flying... Normal/Fairy. Then Fighting/Flying to Fighting/Fairy, etc.
+Oh, by the way, this table includes alternate forms with different types, BUT NOT REGIONAL FORMS.
+Or add them if you want, your hack.
+
+So for Example
+:
+const u16 gPokedexOrder_Type[] =
+{
+	SPECIES_RATTATA,
+	SPECIES_RATICATE,
+...
+	SPECIES_SILVALLY,
+	SPECIES_KOMALA,
+	SPECIES_MELOETTA_PIROUETTE,
+	SPECIES_STUFFUL,
+	SPECIES_BEWEAR,
+	SPECIES_PIDGEY,
+	SPECIES_PIDGEOTTO,
+...
+	SPECIES_WIGGLYTUFF,
+	SPECIES_IGGLYBUFF,
+	SPECIES_AZURILL,
+	SPECIES_MANKEY,
+...
+	SPECIES_XERNEAS,
+	SPECIES_COMFEY,
+	SPECIES_TOGETIC,
+	SPECIES_TOGEKISS,
+};
+
+Notice how the fairy types with a secondary type are last.
+I may as well type it up to help you keep track, because I know some of you are going to keep asking me if I don't.
+Types should go in this order:
+
+Normal
+Normal/Fighting
+Normal/Flying
+Normal/Poison
+Normal/Ground
+Normal/Rock
+Normal/Bug
+Normal/Ghost
+Normal/Steel
+Normal/Fire
+Normal/Water
+Normal/Grass
+Normal/Electric
+Normal/Psychic
+Normal/Ice
+Normal/Dragon
+Normal/Dark
+Normal/Fairy
+Fighting
+Fighting/Normal
+Fighting/Flying
+Fighting/Poison
+Fighting/Ground
+Fighting/Rock
+Fighting/Bug
+Fighting/Ghost
+Fighting/Steel
+Fighting/Fire
+Fighting/Water
+Fighting/Grass
+Fighting/Electric
+Fighting/Psychic
+Fighting/Ice
+Fighting/Dragon
+Fighting/Dark
+Fighting/Fairy
+Flying
+Flying/Normal
+Flying/Fighting
+Flying/Poison
+Flying/Ground
+Flying/Rock
+Flying/Bug
+Flying/Ghost
+Flying/Steel
+Flying/Fire
+Flying/Water
+Flying/Grass
+Flying/Electric
+Flying/Psychic
+Flying/Ice
+Flying/Dragon
+Flying/Dark
+Flying/Fairy
+Poison
+Poison/Normal
+Poison/Fighting
+Poison/Flying
+Poison/Ground
+Poison/Rock
+Poison/Bug
+Poison/Ghost
+Poison/Steel
+Poison/Fire
+Poison/Water
+Poison/Grass
+Poison/Electric
+Poison/Psychic
+Poison/Ice
+Poison/Dragon
+Poison/Dark
+Poison/Fairy
+Ground
+Ground/Normal
+Ground/Fighting
+Ground/Flying
+Ground/Poison
+Ground/Rock
+Ground/Bug
+Ground/Steel
+Ground/Fire
+Ground/Water
+Ground/Grass
+Ground/Electric
+Ground/Psychic
+Ground/Ice
+Ground/Dragon
+Ground/Dark
+Ground/Fairy
+Rock
+Rock/Normal
+Rock/Fighting
+Rock/Flying
+Rock/Poison
+Rock/Ground
+Rock/Bug
+Rock/Ghost
+Rock/Steel
+Rock/Fire
+Rock/Water
+Rock/Grass
+Rock/Electric
+Rock/Psychic
+Rock/Ice
+Rock/Dragon
+Rock/Dark
+Rock/Fairy
+Bug
+Bug/Normal
+Bug/Fighting
+Bug/Flying
+Bug/Poison
+Bug/Ground
+Bug/Rock
+Bug/Ghost
+Bug/Steel
+Bug/Fire
+Bug/Water
+Bug/Grass
+Bug/Electric
+Bug/Psychic
+Bug/Ice
+Bug/Dragon
+Bug/Dark
+Bug/Fairy
+Ghost
+Ghost/Normal
+Ghost/Fighting
+Ghost/Flying
+Ghost/Poison
+Ghost/Ground
+Ghost/Rock
+Ghost/Bug
+Ghost/Steel
+Ghost/Fire
+Ghost/Water
+Ghost/Grass
+Ghost/Electric
+Ghost/Psychic
+Ghost/Ice
+Ghost/Dragon
+Ghost/Dark
+Ghost/Fairy
+Steel
+Steel/Normal
+Steel/Fighting
+Steel/Flying
+Steel/Poison
+Steel/Ground
+Steel/Rock
+Steel/Bug
+Steel/Ghost
+Steel/Fire
+Steel/Water
+Steel/Grass
+Steel/Electric
+Steel/Psychic
+Steel/Ice
+Steel/Dragon
+Steel/Dark
+Steel/Fairy
+Fire
+Fire/Normal
+Fire/Fighting
+Fire/Flying
+Fire/Poison
+Fire/Ground
+Fire/Rock
+Fire/Bug
+Fire/Ghost
+Fire/Steel
+Fire/Water
+Fire/Grass
+Fire/Electric
+Fire/Psychic
+Fire/Ice
+Fire/Dragon
+Fire/Dark
+Fire/Fairy
+Water
+Water/Normal
+Water/Fighting
+Water/Flying
+Water/Poison
+Water/Ground
+Water/Rock
+Water/Bug
+Water/Ghost
+Water/Steel
+Water/Fire
+Water/Grass
+Water/Electric
+Water/Psychic
+Water/Ice
+Water/Dragon
+Water/Dark
+Water/Fairy
+Grass
+Grass/Normal
+Grass/Fighting
+Grass/Flying
+Grass/Poison
+Grass/Ground
+Grass/Rock
+Grass/Bug
+Grass/Ghost
+Grass/Steel
+Grass/Fire
+Grass/Water
+Grass/Electric
+Grass/Psychic
+Grass/Ice
+Grass/Dragon
+Grass/Dark
+Grass/Fairy
+Electric
+Electric/Normal
+Electric/Fighting
+Electric/Flying
+Electric/Poison
+Electric/Ground
+Electric/Rock
+Electric/Bug
+Electric/Ghost
+Electric/Steel
+Electric/Fire
+Electric/Water
+Electric/Grass
+Electric/Psychic
+Electric/Ice
+Electric/Dragon
+Electric/Dark
+Electric/Fairy
+Psychic
+Psychic/Normal
+Psychic/Fighting
+Psychic/Flying
+Psychic/Poison
+Psychic/Ground
+Psychic/Rock
+Psychic/Bug
+Psychic/Ghost
+Psychic/Steel
+Psychic/Fire
+Psychic/Water
+Psychic/Grass
+Psychic/Electric
+Psychic/Ice
+Psychic/Dragon
+Psychic/Dark
+Psychic/Fairy
+Ice
+Ice/Normal
+Ice/Fighting
+Ice/Flying
+Ice/Poison
+Ice/Ground
+Ice/Rock
+Ice/Bug
+Ice/Ghost
+Ice/Steel
+Ice/Fire
+Ice/Water
+Ice/Grass
+Ice/Electric
+Ice/Psychic
+Ice/Dragon
+Ice/Dark
+Ice/Fairy
+Dragon
+Dragon/Normal
+Dragon/Fighting
+Dragon/Flying
+Dragon/Poison
+Dragon/Ground
+Dragon/Rock
+Dragon/Bug
+Dragon/Ghost
+Dragon/Steel
+Dragon/Fire
+Dragon/Water
+Dragon/Grass
+Dragon/Electric
+Dragon/Psychic
+Dragon/Ice
+Dragon/Dark
+Dragon/Fairy
+Dark
+Dark/Normal
+Dark/Fighting
+Dark/Flying
+Dark/Poison
+Dark/Ground
+Dark/Rock
+Dark/Bug
+Dark/Ghost
+Dark/Steel
+Dark/Fire
+Dark/Water
+Dark/Grass
+Dark/Electric
+Dark/Psychic
+Dark/Ice
+Dark/Dragon
+Dark/Fairy
+Fairy
+Fairy/Normal
+Fairy/Fighting
+Fairy/Flying
+Fairy/Poison
+Fairy/Ground
+Fairy/Rock
+Fairy/Bug
+Fairy/Ghost
+Fairy/Steel
+Fairy/Fire
+Fairy/Water
+Fairy/Grass
+Fairy/Electric
+Fairy/Psychic
+Fairy/Ice
+Fairy/Dragon
+Fairy/Dark

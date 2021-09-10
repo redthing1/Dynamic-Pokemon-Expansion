@@ -1,0 +1,26 @@
+----------------------------------------
+DPE Master/Src/Item_Animation_Table.c
+----------------------------------------
+
+This is the item animation table.
+Each Pokemon in vanilla FR has an item animation, like when you use a Potion or a TM on them.
+To my knowledge this is removed or ignored by a rom using DPE/CFRU.
+However, the Pokemon still need a table entry.
+
+Simply match the species found in Include/species.h to 5 hex values in the table.
+Here is an example:
+
+const struct ItemAnimation gItemAnimationTable[NUM_SPECIES] =
+{
+	[SPECIES_NONE] =                 {0x16, 0x1b, 0x30, 0x16, 0x29},
+	[SPECIES_BULBASAUR] =            {0x14, 0x1b, 0x30, 0x15, 0x2a},
+	[SPECIES_IVYSAUR] =              {0x1b, 0x20, 0x20, 0x1b, 0x33},
+	[SPECIES_VENUSAUR] =             {0x14, 0xf, 0x38, 0x13, 0x1e},
+...
+	[SPECIES_PIKACHU_CAP_PARTNER] =  {0x0, 0x0, 0x0, 0x0, 0x0},
+	[SPECIES_PICHU_SPIKY] =          {0x0, 0x0, 0x0, 0x0, 0x0},
+	[SPECIES_XERNEAS_NATURAL] =      {0x0, 0x0, 0x0, 0x0, 0x0}
+};
+
+You noticed, the newer additions just have 0 as their values. You can just place 0's for every new entry.
+It really does not matter in the long term.

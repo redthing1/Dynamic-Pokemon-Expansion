@@ -1,0 +1,28 @@
+-------------------------------------
+DPE Master/Src/Footprint_Table.c
+-------------------------------------
+
+This is the footprint table for each pokemon.
+Note that by default, no pokemon will be shaown to have footprints.
+Each new entry is configured so far to have Metapods footprint, meaning none.
+If you wish to change that...well good luck. There is no real reason you should include it.
+That is in Src/defines.h, for reference.
+
+
+Syntax:
+
+const u32 gMonFootprintTable[NUM_SPECIES] =
+{
+	[SPECIES_NONE] = 0x8d3058c,
+	[SPECIES_BULBASAUR] = 0x8d3058c,
+	[SPECIES_IVYSAUR] = 0x8d3108c,
+	[SPECIES_VENUSAUR] = 0x8d31f04,
+...
+	[SPECIES_PIKACHU_CAP_PARTNER] = 0x8d3058c,
+	[SPECIES_PICHU_SPIKY] = 0x8d3058c,
+	[SPECIES_XERNEAS_NATURAL] = 0x8d3058c,
+};
+
+#endif
+
+When adding new entries, just use 0x8d3058c.

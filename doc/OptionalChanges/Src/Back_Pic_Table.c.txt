@@ -1,0 +1,20 @@
+-----------------------------------------
+DPE Master/Src/Back_Pic_Table.c
+-----------------------------------------
+
+This table links which species defined in Include/species.h will be matched with a given backsprite.
+
+Syntax:
+
+const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES] =
+{
+	[SPECIES_NONE] =                 {gBackShinySprite000NoneTiles, (64 * 64) / 2, SPECIES_NONE},
+	[SPECIES_BULBASAUR] =            {gBackShinySprite001BulbasaurTiles, (64 * 64) / 2, SPECIES_BULBASAUR},
+	[SPECIES_IVYSAUR] =              {gBackShinySprite002IvysaurTiles, (64 * 64) / 2, SPECIES_IVYSAUR},
+	[SPECIES_VENUSAUR] =             {gBackShinySprite003VenusaurTiles, (64 * 64) / 2, SPECIES_VENUSAUR},
+...
+	[SPECIES_PICHU_SPIKY] =          {gBackShinySprite1100PichuSpikyTiles, (64 * 64) / 2, SPECIES_PICHU_SPIKY},
+	[SPECIES_XERNEAS_NATURAL] =      {gBackShinySprite1101XerneasNaturalTiles, (64 * 64) / 2, SPECIES_XERNEAS_NATURAL},
+};
+
+Match every pokemon in Include/species.h to a BackShinySprite found in Include/sprite_data.h!

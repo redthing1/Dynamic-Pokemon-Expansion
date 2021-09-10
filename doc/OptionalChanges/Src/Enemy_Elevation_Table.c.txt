@@ -1,0 +1,27 @@
+-----------------------------------------
+DPE Master/Src/Enemy_Elevation_Table.c
+-----------------------------------------
+
+This table determines the elevation table for each species defined in Include/species.h
+This controls the shadow and height for pokemon that are flying or levitating in its sprite.
+
+Syntax:
+
+const u8 gEnemyMonElevation[NUM_SPECIES] =
+{
+	[SPECIES_NONE] = 0x0,
+	[SPECIES_BULBASAUR] = 0x0,
+	[SPECIES_IVYSAUR] = 0x0,
+	[SPECIES_VENUSAUR] = 0x0,
+...
+	[SPECIES_BUTTERFREE] = 0x11,
+	[SPECIES_WEEDLE] = 0x0,
+	[SPECIES_KAKUNA] = 0x0,
+	[SPECIES_BEEDRILL] = 0x8,
+...
+	[SPECIES_PICHU_SPIKY] = 0x0,
+	[SPECIES_XERNEAS_NATURAL] = 0x0,
+};
+
+If you are unsure of what value to place for its levitation, do not worry.
+You can revisit this using Advance Sprite, Icon and Position editor later!

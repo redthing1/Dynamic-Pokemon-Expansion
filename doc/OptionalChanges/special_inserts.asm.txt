@@ -1,0 +1,17 @@
+---------------------------------
+DPE Master/special_inserts.asm
+---------------------------------
+
+This file is a very simple one to change.
+The only ones you should really pay attention to are lines 5 and 7.
+
+By default, they are:
+
+.equ NUM_SPECIES, 1102
+
+.equ FINAL_DEX_ENTRY, 809
+
+When you have configured your species table and how many National Dex entries you want, change those numbers accordingly.
+Note that they are in decimal form, not hex, if that wasn't obvious enough.
+
+The rest of the file can be left alone with little issue.

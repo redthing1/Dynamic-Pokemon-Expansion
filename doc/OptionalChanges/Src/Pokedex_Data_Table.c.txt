@@ -1,0 +1,75 @@
+---------------------------------------------
+DPE Master Folder/Src/Pokedex_Data_Table.c
+---------------------------------------------
+
+This table is where the actual Pokedex data is located. Meaning this file controls:
+
+*Species Category
+*Height
+*Weight
+*Pointer to Dex description
+*Second dex description (unused)
+*Size comparison (unused- the pokedex base stats routine replaces this in the pokedex)
+
+You must ensure this table matches the defines in the first table of Include/pokedex.h
+You should also ensure that everything is in the order described.
+
+Syntax: 
+	[NATIONAL_DEX_NONE] =
+	{
+		.categoryName = {_U, _n, _k, _n, _o, _w, _n, _END, _SPACE, _SPACE, _SPACE, _SPACE},
+		.height = 0,
+		.weight = 0,
+		.description = (const u8*) 0x8444c35,
+		.unusedDescription = (const u8*) 0x8444cb1,
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_BULBASAUR] =
+	{
+		.categoryName = {_S, _e, _e, _d, _END, _SPACE, _SPACE, _SPACE, _SPACE, _SPACE, _SPACE, _SPACE},
+		.height = 7,
+		.weight = 69,
+		.description = (const u8*) 0x8444cb2,
+		.unusedDescription = (const u8*) 0x8444d11,
+		.pokemonScale = 356,
+		.pokemonOffset = 16,
+		.trainerScale = 256,
+		.trainerOffset = 65534,
+	},
+
+...
+	[NATIONAL_DEX_MELMETAL] =
+	{
+		.categoryName = {_H, _e, _x, _SPACE, _N, _u, _t, _END, _SPACE, _SPACE, _SPACE, _SPACE},
+		.height = 25,
+		.weight = 8000,
+		.description = DEX_ENTRY_MELMETAL,
+		.unusedDescription = (const u8*) 0x8444cb1,
+		.pokemonScale = 0,
+		.pokemonOffset = 0,
+		.trainerScale = 0,
+		.trainerOffset = 0,
+	}
+};
+
+Now you may ask, what about alternate entries like Alolan forms?
+That is the bottom part of the table.
+
+After the last entry you will find this table:
+
+const struct AlternateDexEntries gAlternateDexEntries[] =
+{
+	ALTERNATE_ENTRY(RATTATA_A),
+	ALTERNATE_ENTRY(RATICATE_A),
+...
+	ALTERNATE_ENTRY(WISHIWASHI_S),
+	ALTERNATE_ENTRY(NECROZMA_DUSK_MANE),
+	ALTERNATE_ENTRY(NECROZMA_DAWN_WINGS),
+	ALTERNATE_ENTRY(NECROZMA_ULTRA),
+	{SPECIES_TABLES_TERMIN, 0} 
+};
+
+Define your alternate entry tables, in national dex order if you can.

@@ -1,0 +1,55 @@
+-----------------------------
+DPE Master/Src/Egg_Moves.c
+-----------------------------
+
+This file configures egg moves that each pokemon can learn.
+
+Here is how it is structured:
+
+const u16 gEggMoves[] =
+{
+	egg_moves(BULBASAUR,
+		MOVE_SKULLBASH,
+		MOVE_CHARM,
+		MOVE_PETALDANCE,
+		MOVE_MAGICALLEAF,
+		MOVE_GRASSWHISTLE,
+		MOVE_CURSE,
+		MOVE_INGRAIN,
+		MOVE_NATUREPOWER,
+		MOVE_AMNESIA,
+		MOVE_LEAFSTORM,
+		MOVE_POWERWHIP,
+		MOVE_SLUDGE,
+		MOVE_ENDURE,
+		MOVE_GIGADRAIN,
+		MOVE_GRASSYTERRAIN),
+
+	egg_moves(CHARMANDER,
+		MOVE_BELLYDRUM,
+		MOVE_ANCIENTPOWER,
+		MOVE_BITE,
+		MOVE_OUTRAGE,
+		MOVE_BEATUP,
+		MOVE_DRAGONDANCE,
+		MOVE_CRUNCH,
+		MOVE_DRAGONRUSH,
+		MOVE_METALCLAW,
+		MOVE_FLAREBLITZ,
+		MOVE_COUNTER,
+		MOVE_DRAGONPULSE,
+		MOVE_FOCUSPUNCH,
+		MOVE_AIRCUTTER),
+...
+	egg_moves(ORICORIO_S,
+		MOVE_PLUCK,
+		MOVE_TAILWIND,
+		MOVE_SAFEGUARD,
+		MOVE_CAPTIVATE),
+};
+
+Note a few things: 
+The table only includes first forms only.
+The moves are defined based on Include/moves.h
+The ( comes before the Pokemon's name, and the ) comes after the last move, but before the last comma.
+Alternate forms can have egg moves too.

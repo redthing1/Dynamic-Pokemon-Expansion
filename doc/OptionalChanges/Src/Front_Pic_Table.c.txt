@@ -1,0 +1,20 @@
+-----------------------------------------
+DPE Master/Src/Front_Pic_Table.c
+-----------------------------------------
+
+This table links which species defined in Include/species.h will be matched with a given front sprite.
+
+Syntax:
+
+const struct CompressedSpriteSheet gMonFrontPicTable[NUM_SPECIES] =
+{
+	[SPECIES_NONE] =                 {gFrontSprite000NoneTiles, (64 * 64) / 2, SPECIES_NONE},
+	[SPECIES_BULBASAUR] =            {gFrontSprite001BulbasaurTiles, (64 * 64) / 2, SPECIES_BULBASAUR},
+	[SPECIES_IVYSAUR] =              {gFrontSprite002IvysaurTiles, (64 * 64) / 2, SPECIES_IVYSAUR},
+	[SPECIES_VENUSAUR] =             {gFrontSprite003VenusaurTiles, (64 * 64) / 2, SPECIES_VENUSAUR},
+...
+	[SPECIES_PICHU_SPIKY] =          {gFrontSprite1100PichuSpikyTiles, (64 * 64) / 2, SPECIES_PICHU_SPIKY},
+	[SPECIES_XERNEAS_NATURAL] =      {gFrontSprite1101XerneasNaturalTiles, (64 * 64) / 2, SPECIES_XERNEAS_NATURAL},
+};
+
+Match every pokemon in Include/species.h to a Front Sprite found in Include/sprite_data.h!

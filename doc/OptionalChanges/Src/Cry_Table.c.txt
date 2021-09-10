@@ -1,0 +1,54 @@
+-----------------------------
+DPE Master/Src/Cry_Table.c
+-----------------------------
+
+This is the Cry Table. Here is where you map all the pokemon cries to those added in Include/cry_data.h!
+
+Syntax:
+
+const struct ToneData gCryTable[NUM_SPECIES] =
+{
+	[SPECIES_BULBASAUR] =
+	{
+		.type = 0x20,
+		.key = 0x3c,
+		.length = 0x0,
+		.pan_sweep = 0x0,
+		.wav = (u8*) 0x850fbc4,
+		.attack = 0xff,
+		.decay = 0x0,
+		.sustain = 0xff,
+		.release = 0x0,
+	},
+	[SPECIES_IVYSAUR] =
+	{
+		.type = 0x20,
+		.key = 0x3c,
+		.length = 0x0,
+		.pan_sweep = 0x0,
+		.wav = (u8*) 0x8510c50,
+		.attack = 0xff,
+		.decay = 0x0,
+		.sustain = 0xff,
+		.release = 0x0,
+	},
+...
+	[SPECIES_XERNEAS_NATURAL] =
+	{	
+		.type = 0x20,
+		.key = 0x3c,
+		.length = 0x0,
+		.pan_sweep = 0x0,
+		.wav = gCryXerneas,
+		.attack = 0xff,
+		.decay = 0x0,
+		.sustain = 0xff,
+		.release = 0x0,
+	},
+};
+
+For entries starting with Turtwig, notice that Xerneas uses .wav= gCryXerneas, while Bulbasaur leads to its original offset.
+All of these offsets look scary, but the only thing that matters is what .wav leads to.
+Ignore the rest!
+
+Make sure every cry included in cry_data.h and the audio folder is included!

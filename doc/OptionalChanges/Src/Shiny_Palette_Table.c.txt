@@ -1,0 +1,23 @@
+---------------------------------------
+DPE Master/Src/Shiny_Palette_Table.c
+---------------------------------------
+
+This file determines which pokemon species is linked to the shiny palettes defined in Include/sprite_data.h
+
+Syntax:
+
+{
+	[SPECIES_NONE] =                 {gBackShinySprite000NonePal, SPECIES_NONE + NUM_SPECIES, 0x0},
+	[SPECIES_BULBASAUR] =            {gBackShinySprite001BulbasaurPal, SPECIES_BULBASAUR + NUM_SPECIES, 0x0},
+	[SPECIES_IVYSAUR] =              {gBackShinySprite002IvysaurPal, SPECIES_IVYSAUR + NUM_SPECIES, 0x0},
+	[SPECIES_VENUSAUR] =             {gBackShinySprite003VenusaurPal, SPECIES_VENUSAUR + NUM_SPECIES, 0x0},
+...
+	[SPECIES_PIKACHU_CAP_PARTNER] =  {gBackShinySprite1099PikachuCapPartnerPal, SPECIES_PIKACHU_CAP_PARTNER + NUM_SPECIES, 0x0},
+	[SPECIES_PICHU_SPIKY] =          {gBackShinySprite1100PichuSpikyPal, SPECIES_PICHU_SPIKY + NUM_SPECIES, 0x0},
+	[SPECIES_XERNEAS_NATURAL] =      {gBackShinySprite1101XerneasNaturalPal, SPECIES_XERNEAS_NATURAL + NUM_SPECIES, 0x0},
+};
+
+Note how the species is linked to gBackShinySpriteXYPal
+X being the sprite #, Y being the species.
+
+If you have edited Include/sprite_data.h, you must ensure that the species matches the proper value!
